@@ -16,8 +16,20 @@ class TelegramNotifier:
             
         return response.json()["result"] 
 
-    def send_message(self, chat_id: str, message: str) -> None:
-        self._make_request("sendMessage", {"chat_id": chat_id, "text": message})
+    def send_message(
+        self,
+        chat_id: str,
+        message: str,
+        parse_mode: str = "HTML",
+        disable_web_page_preview: bool = True,
+    ) -> None:
+        params = {
+            "chat_id": chat_id,
+            "text": message,
+            "parse_mode": parse_mode,
+            "disable_web_page_preview": disable_web_page_preview,
+        }
+        self._make_request("sendMessage", params)
 
     def get_chat_id(self) -> str:
         updates = self._make_request("getUpdates", {"timeout": 10})

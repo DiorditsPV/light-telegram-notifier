@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ltm"
-version = "0.1.0"
+version = "0.1.1"
 description = "lightweight Telegram notification lib"
 authors = [
     { name = "DiorditsPV", email = "pavel.diordits@yandex.ru" }
